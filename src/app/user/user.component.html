@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="schedule">
+    <div class="row" style="background: blue; border:3.5px solid gray">
+      <div class="px-md-2">
+        <div class="form-outline mb-4">
+          <h1 style="text-align:center">Register</h1>
+          <label class="form-label" for="form3Example1q">Name</label>
+          <input
+            #name
+            type="text"
+            input.value=""
+            id="form3Example1q"
+            [(ngModel)]="firstname"
+            [ngClass]="BorderColor(name)"
+            placeholder="Enter name"
+            class="form-control"
+          />
+        </div>
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form3Example1q">Surname</label>
+          <input
+            #surname
+            type="text"
+            id="form3Example1q"
+            input.value=""
+            [(ngModel)]="lastname"
+            [ngClass]="BorderColor(surname)"
+            placeholder="Enter surname"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form3Example1q">Age</label>
+          <input
+            #age
+            type="number"
+            id="form3Example1q"
+            input.value=""
+            [(ngModel)]="birthday"
+            [ngClass]="BorderColor(age)"
+            placeholder="Age"
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form3Example1q">Hire Date</label>
+        <input
+          #date
+          type="date"
+          class="form-control mb-5"
+          input.value=""
+          [ngClass]="BorderColor(date)"
+          [(ngModel)]="hdate"
+          placeholder="Date"
+        />
+      </div>
+
+      <button
+        class="btn btn-primary"
+        [ngClass]="SpecialClass()"
+        (click)="Add(name, surname, age, date)"
+      >
+        Add
+      </button>
+    </div>
+  </div>
+</div>
+<hr />
+<table class="table">
+  <tbody *ngFor="let item of getItems(); let i = index">
+    <tr>
+      <td>{{ item.Name }}</td>
+      <td>{{ item.Surname }}</td>
+      <td>{{ item.Age }}</td>
+      <td>{{ item.HireDate }}</td>
+    </tr>
+  </tbody>
+</table>
